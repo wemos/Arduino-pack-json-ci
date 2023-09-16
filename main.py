@@ -4,8 +4,8 @@ import json
 import hashlib
 import os
 
-packagesPath = "package_lolin_py32_index.json"
-packagesCNPath = "package_lolin_py32_cn_index.json"
+packagesPath = "package_py32_index.json"
+packagesCNPath = "package_py32_cn_index.json"
 
 GCCVersion = "12.2.1-1.2"
 AirISPVersion = ""  # 不定义具体的版本，在GetAirISPVersion函数中创造
@@ -239,9 +239,9 @@ def PlatformsAirMCU(version):
     data['size'] = ComputeSize(fileName)
     data['boards'] = [{'name': "LOLIN PY32F002A"},
                       {'name': "LOLIN PY32F002A(DEV)"}]
-    data['toolsDependencies'] = [{'packager': "AirM2M", 'name': "xpack-arm-none-eabi-gcc", 'version': GCCVersion},
-                                 {'packager': "AirM2M", 'name': "CMSIS", 'version': CMSISVersion},
-                                 {'packager': "AirM2M", 'name': "AirISP", 'version': AirISPVersion}]
+    data['toolsDependencies'] = [{'packager': "py32", 'name': "xpack-arm-none-eabi-gcc", 'version': GCCVersion},
+                                 {'packager': "py32", 'name': "CMSIS", 'version': CMSISVersion},
+                                 {'packager': "py32", 'name': "AirISP", 'version': AirISPVersion}]
     dataCn = data.copy()
     dataCn['url'] = "https://arduino.luatos.com/" + fileName
     return data, dataCn
