@@ -222,8 +222,8 @@ def CMSIS():
     return data, dataCn
 
 
-def PlatformsAirMCU(version):
-    fileName = "AirMCU-" + version + ".zip"
+def PlatformsPY32(version):
+    fileName = "py32-" + version + ".zip"
     url = "https://github.com/wemos/Arduino-py32/releases/download/" + version + "/" + fileName
     downloadFile(url)
     data = {}
@@ -261,7 +261,7 @@ def PackagesAirM2M():
 
     PlatformsVersion.extend(GetRepoVersion("wemos", "Arduino-py32"))
     for item in PlatformsVersion:
-        temp, tempCn = PlatformsAirMCU(item)
+        temp, tempCn = PlatformsPY32(item)
         platforms.append(temp)
         platformsCn.append(tempCn)
     data['platforms'] = platforms
