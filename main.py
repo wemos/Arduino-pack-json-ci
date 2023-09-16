@@ -257,7 +257,7 @@ def PackagesAirM2M():
     platforms = []
     platformsCn = []
 
-    PlatformsVersion.extend(GetRepoVersion("Air-duino", "Arduino-AirMCU"))
+    PlatformsVersion.extend(GetRepoVersion("wemos", "Arduino-py32"))
     for item in PlatformsVersion:
         temp, tempCn = PlatformsAirMCU(item)
         platforms.append(temp)
