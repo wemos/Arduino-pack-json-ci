@@ -228,7 +228,7 @@ def PlatformsAirMCU(version):
     downloadFile(url)
     data = {}
     dataCn = {}
-    data['name'] = "py32"
+    data['name'] = "LOLIN PY32 ARM M0+ Boards"
     data['architecture'] = "py32"
     data['version'] = version
     data['category'] = "Contributed"
