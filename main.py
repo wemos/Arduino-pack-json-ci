@@ -223,7 +223,7 @@ def CMSIS():
 
 def PlatformsAirMCU(version):
     fileName = "AirMCU-" + version + ".zip"
-    url = "https://github.com/Air-duino/Arduino-AirMCU/releases/download/" + version + "/" + fileName
+    url = "https://github.com/wemos/Arduino-py32/releases/download/" + version + "/" + fileName
     downloadFile(url)
     data = {}
     dataCn = {}
