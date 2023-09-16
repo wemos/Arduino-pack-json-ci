@@ -4,8 +4,8 @@ import json
 import hashlib
 import os
 
-packagesPath = "package_air_index.json"
-packagesCNPath = "package_air_cn_index.json"
+packagesPath = "package_lolin_py32_index.json"
+packagesCNPath = "package_lolin_py32_cn_index.json"
 
 GCCVersion = "12.2.1-1.2"
 AirISPVersion = ""  # 不定义具体的版本，在GetAirISPVersion函数中创造
@@ -104,7 +104,8 @@ def DownloadAndCheck(url, fileName, host, suffixName):
     temp['size'] = ComputeSize(tempPath)
 
     tempCn = temp.copy()
-    tempCn['url'] = "https://arduino.luatos.com/" + fileName + suffixName
+    # tempCn['url'] = "https://arduino.luatos.com/" + fileName + suffixName
+    tempCn['url'] = tempUrl
     return temp, tempCn
 
 
@@ -227,16 +228,17 @@ def PlatformsAirMCU(version):
     downloadFile(url)
     data = {}
     dataCn = {}
-    data['name'] = "Air MCU"
-    data['architecture'] = "AirMCU"
+    data['name'] = "py32"
+    data['architecture'] = "py32"
     data['version'] = version
     data['category'] = "Contributed"
-    data['help'] = {'online': "https://arduino.luatos.com"}
+    data['help'] = {'online': "https://www.wemos.cc"}
     data['url'] = url
     data['archiveFileName'] = fileName
     data['checksum'] = "SHA-256:" + ComputeSHA256(fileName)
     data['size'] = ComputeSize(fileName)
-    data['boards'] = [{'name': "Air001"}]
+    data['boards'] = [{'name': "LOLIN PY32F002A"},
+                      {'name': "LOLIN PY32F002A(DEV)"}]
     data['toolsDependencies'] = [{'packager': "AirM2M", 'name': "xpack-arm-none-eabi-gcc", 'version': GCCVersion},
                                  {'packager': "AirM2M", 'name': "CMSIS", 'version': CMSISVersion},
                                  {'packager': "AirM2M", 'name': "AirISP", 'version': AirISPVersion}]
@@ -248,11 +250,11 @@ def PlatformsAirMCU(version):
 def PackagesAirM2M():
     data = {}
     dataCn = {}
-    data['name'] = "AirM2M"
-    data['maintainer'] = "AirM2M"
-    data['websiteURL'] = "https://arduino.luatos.com"
-    data['email'] = "HalfSweet@HalfSweet.cn"
-    data['help'] = {'online': "https://arduino.luatos.com"}
+    data['name'] = "py32"
+    data['maintainer'] = "wemos.cc"
+    data['websiteURL'] = "https://www.wemos.cc"
+    data['email'] = "support@wemos.cc"
+    data['help'] = {'online': "https://www.wemos.cc"}
     dataCn = data.copy()
     platforms = []
     platformsCn = []
